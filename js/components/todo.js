@@ -1,6 +1,6 @@
 var Todo = () => {
   var parent = $("<div class='white-card'></div>");
-  var input = $("<input id='input-item' type='text' placeholder='ingresa la tarea'></input>");
+  var input = $("<input id='input-item' type='text' placeholder='Ingresa la tarea'></input>");
   var todotitle = $("<p>To Do List:</p>");
   var list = $("<div class='list'></div>");
   var hr = $("<hr>");
@@ -46,7 +46,7 @@ var TodoItem = (data, update) => {
   var todo = $("<div class='todo unchecked'></div>");
   var checkbox = $("<input type='checkbox' class='check-box'>");
   var span = $("<span>" + data.text + "</span>");
-  var remove = $("<button>remove</button>");
+  var remove = $("<button>Remove</button>");
 
   todo.append(checkbox);
   todo.append(span);
