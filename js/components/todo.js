@@ -13,4 +13,19 @@ var Todo = () => {
   parent.append(hr);
   parent.append(completedTitle);
   parent.append(completedList);
+  
+  input.on("keypress", (e) => {
+    if (e.wich==13) {
+      if (input.val() != "") {
+        state.todos.push({
+          text: input.val,
+          completed: false
+        });
+        input.val("");
+        reRender(list, completedList);
+      }
+    }
+  });
+
+  return parent
 }
