@@ -13,7 +13,7 @@ var Todo = () => {
   parent.append(hr);
   parent.append(completedTitle);
   parent.append(completedList);
-  
+
   input.on("keypress", (e) => {
     if (e.wich==13) {
       if (input.val() != "") {
@@ -28,4 +28,16 @@ var Todo = () => {
   });
 
   return parent
+}
+
+var reRender = (todoList, completedList) => {
+  todoList.empty();
+  completedList.empty();
+  state.todos.forEach(todo => {
+    if (!todo.completed) {
+      todoList.append(TodoItem(todo,_ => {reRender(todoList, completedList);}));
+    } else {
+      completedList.append(TodoItem(todo,_ => {reRender(todoList, completedList); }));
+    }
+  });
 }
